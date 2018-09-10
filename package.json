@@ -1,0 +1,65 @@
+{
+  "name": "@cactus-technologies/Lyme_Registration",
+  "version": "1.0.0",
+  "private": true,
+  "description": "electronJS-based lyme kiosk registration",
+  "homepage": "./",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:CactusTechnologies/Lyme_Registration.git"
+  },
+  "license": "UNLICENCED",
+  "author": "Cactus Technologies LLC <hi@cactus.is> (https://www.cactus.is)",
+  "scripts": {
+    "build": "react-scripts build",
+    "precommit": "npm run docs && lint-staged",
+    "docs": "run-s docs:* -sn",
+    "docs:authors": "git log --format='%aN <%aE>' | sort -f | uniq > AUTHORS && git add AUTHORS",
+    "docs:readme": "mos README.md && git add README.md",
+    "docs:todos": "npm run todos -s -- --reporter markdown > TODO.md && git add TODO.md",
+    "outdated": "npm outdated --long  || true",
+    "prepush": "npm run test",
+    "start": "BROWSER=none react-scripts start",
+    "test": "run-s test:** -sn",
+    "test:depcheck": "depcheck --ignores=husky,config,eslint-*,babel-eslint --ignore-bin-package",
+    "test:lint": "eslint '**/*.js'",
+    "test:lint:css": "stylelint 'src/**/*.css' || true",
+    "todos": "leasot './src/**' '*.js' --skip-unsupported --exit-nicely"
+  },
+  "config": {
+    "scopes": [
+      "app",
+      "assets",
+      "package",
+      "server"
+    ]
+  },
+  "dependencies": {
+    "@material-ui/core": "^3.0.2",
+    "informed": "^1.10.4",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "@cactus-technologies/eslint-config": "^1.0.1",
+    "cz-cactus": "^1.1.1",
+    "depcheck": "^0.6.9",
+    "eslint": "^5.0.0",
+    "eslint-plugin-node": "^7.0.1",
+    "husky": "^0.14.3",
+    "leasot": "^6.1.0",
+    "lint-staged": "^7.1.0",
+    "madge": "^3.2.0",
+    "mos": "^1.3.1",
+    "npm-run-all": "^4.1.3",
+    "prettier": "^1.12.1",
+    "react-scripts": "^1.1.4",
+    "sort-package-json": "^1.15.0",
+    "stylelint": "^9.4.0",
+    "stylelint-config-idiomatic-order": "^5.0.0",
+    "stylelint-config-prettier": "^4.0.0",
+    "stylelint-config-standard": "^18.2.0"
+  }
+}
