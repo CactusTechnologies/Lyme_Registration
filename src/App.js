@@ -6,7 +6,7 @@ import Info from './containers/Info'
 import Intro from './containers/Intro'
 import Confirmation from './containers/Confirmation'
 import Terms from './containers/Terms'
-import moment from 'moment'
+// import moment from 'moment'
 
 class App extends Component {
   constructor (props) {
@@ -38,15 +38,15 @@ class App extends Component {
     console.log(name + ':' + this.state[name])
   }
   handleSumbit () {
-    var date = moment(this.state.dob).format('L')
     var userData = {
       role: this.state.role,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       email: this.state.email,
-      dob: date
+      dob: this.state.dob
     }
-    fetch('endpoint', {
+    console.log(userData)
+    fetch('http://192.168.1.199:3030/user/new', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
