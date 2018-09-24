@@ -6,11 +6,14 @@ import Button from '../components/Button'
 const styles = {
   intro: {
     height: '100vh',
-    textAlign: 'center'
+    textAlign: 'center',
+    background: '#f5f5f5'
   },
   heading: {
-    fontSize: '36px',
-    marginTop: '5%'
+    fontSize: '24px',
+    marginTop: '5%',
+    marginBottom: '20px',
+    fontFamily: 'SofiaProSemiBold'
   },
   subHeading: {
     fontSize: '16px',
@@ -21,9 +24,14 @@ const styles = {
     marginTop: '30%'
   },
   body: {
-    width: '300px',
+    width: '350px',
     margin: 'auto',
-    padding: '30px'
+    padding: '30px',
+    textAlign: 'left',
+    display: 'inline-block',
+    lineHeight: '1.4',
+    color: '#434448',
+    verticalAlign: 'top'
   }
 }
 
@@ -36,7 +44,7 @@ class Terms extends Component {
     this.handleAgree = this.handleAgree.bind(this)
   }
   handleAgree () {
-    this.props.nextPage(5)
+    this.props.nextPage(6)
     this.props.handleSubmit()
   }
   render () {
@@ -44,25 +52,43 @@ class Terms extends Component {
     return (
       <div>
         <div className={classes.intro}>
-          <Header />
+          <Header back={true} nextPage={() => this.props.nextPage(4)} />
           <div className={classes.heading}>
             Your recorded story will be shared publicy...
           </div>
           <p className={classes.body}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-            faucibus efficitur tellus. Sed dui urna, convallis eget dolor sed,
-            faucibus posuere felis. Ut dapibus ligula a lacus vehicula
-            porttitor. In in nunc vel magna ornare blandit. In aliquet vehicula
-            sagittis. Aliquam laoreet tellus eu risus laoreet ullamcorper.
-            Vivamus porta est et massa vehicula sodales. Cras condimentum et
-            neque feugiat fringilla. Integer a tempor purus, quis eleifend
-            massa. Integer pulvinar vestibulum porttitor. Nunc at elit odio.
-            Curabitur facilisis, libero nec suscipit dapibus, libero ipsum
-            ullamcorper tortor, eu aliquam elit lectus eu purus. Suspendisse eu
-            molestie turpis, id semper urna. Suspendisse potenti.
+            Lorem ipsum dolor sit amet, consectetuer adi piscing elit, sed diam
+            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+            mcorper suscipit lobortis odo consequat. Duis autem vel eum iriure
+            dolor in hendrerit in vulputate velit esse molestie , vel illum
+            dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
+            odio dignissim qui blandit pra sent luptatum zzril delenit augue
+            duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,
+            cons ectet iscing elit, sed diam nonummy nibh euismod
+          </p>{' '}
+          <p className={classes.body}>
+            Lorem ipsum dolor sit amet, consectetuer adi piscing elit, sed diam
+            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+            mcorper suscipit lobortis odo consequat. Duis autem vel eum iriure
+            dolor in hendrerit in vulputate velit esse molestie , vel illum
+            dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
           </p>
-          <Button onClick={() => this.props.nextPage(1)}>Disagree</Button>
-          <Button onClick={() => this.handleAgree()}>I Agree</Button>
+          <Button
+            align={'left'}
+            theme={'light'}
+            onClick={() => this.props.handleDisagree()}
+          >
+            Disagree
+          </Button>
+          <Button
+            align={'right'}
+            theme={'valid'}
+            onClick={() => this.handleAgree()}
+          >
+            I Agree
+          </Button>
         </div>
       </div>
     )

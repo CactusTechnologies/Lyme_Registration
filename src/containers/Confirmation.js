@@ -8,15 +8,18 @@ const styles = {
     textAlign: 'center'
   },
   heading: {
-    fontSize: '36px'
+    fontSize: '42px',
+    paddingTop: '20%',
+    width: '320px',
+    margin: 'auto',
+    fontFamily: 'MuseoSlab100',
+    color: '#FFF'
   },
   subHeading: {
     fontSize: '16px',
-    marginTop: '10px'
-  },
-  swipe: {
-    textTransform: 'uppercase',
-    marginTop: '20%'
+    marginTop: '10px',
+    fontFamily: 'SofiaProSemiBold',
+    color: '#FFF'
   }
 }
 
@@ -29,23 +32,16 @@ class Confirmation extends Component {
   }
   componentDidMount () {
     setTimeout(() => {
-      this.props.nextPage(0)
+      this.props.resetApp()
     }, 3000)
   }
-  toggleDrawer (open) {
-    this.setState({
-      top: open
-    })
-    this.props.nextPage(1)
-  }
-
   render () {
     const { classes } = this.props
     return (
       <div className={classes.confirmation} tabIndex={0}>
         <div className={classes.heading}>Thank You for Participating</div>
         <div className={classes.subHeading}>
-          The Booth Attendant Will Now Show You Inside
+          The Story Booth Attendant Will Now Show You Inside
         </div>
       </div>
     )

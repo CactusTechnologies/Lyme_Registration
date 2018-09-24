@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.1175 35.7824">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #a1dd4b;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <title>Asset 1</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="navbar">
+      <polyline class="cls-1" points="18.407 35.079 1.407 17.891 18.407 0.703"/>
+    </g>
+  </g>
+</svg>

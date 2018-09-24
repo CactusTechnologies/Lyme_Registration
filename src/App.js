@@ -6,36 +6,34 @@ import Info from './containers/Info'
 import Intro from './containers/Intro'
 import Confirmation from './containers/Confirmation'
 import Terms from './containers/Terms'
+import Photo from './containers/Photo'
+// import Fullscreen from 'react-full-screen'
 // import moment from 'moment'
 
 class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      page: 0,
+      page: 2,
       role: '',
       firstName: '',
       lastName: '',
       email: '',
-      dob: ''
+      dob: '',
+      photo: '',
+      isFull: false
     }
     this.nextPage = this.nextPage.bind(this)
-    this.prevPage = this.prevPage.bind(this)
     this.updateData = this.updateData.bind(this)
     this.handleSubmit = this.handleSumbit.bind(this)
+    this.resetApp = this.resetApp.bind(this)
   }
-
   nextPage (number) {
     this.setState({ page: number })
-    console.log(this.state.page)
   }
-  prevPage () {
-    const page = this.state
-    this.setState({ page: page - 1 })
-  }
+
   updateData (name, value) {
     this.setState({ [name]: value })
-    console.log(name + ':' + this.state[name])
   }
   handleSumbit () {
     var userData = {
@@ -55,7 +53,19 @@ class App extends Component {
       body: JSON.stringify(userData)
     })
   }
-  render () {
+  resetApp () {
+    this.setState({
+      role: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      dob: '',
+      photo: ''
+    })
+    this.nextPage(0)
+  }
+
+  content () {
     switch (this.state.page) {
       case 0:
         return <Attract nextPage={this.nextPage} />
@@ -66,14 +76,49 @@ class App extends Component {
           <Experience updateData={this.updateData} nextPage={this.nextPage} />
         )
       case 3:
-        return <Info updateData={this.updateData} nextPage={this.nextPage} />
-      case 4:
         return (
-          <Terms handleSubmit={this.handleSubmit} nextPage={this.nextPage} />
+          <Info
+            updateData={this.updateData}
+            nextPage={this.nextPage}
+            {...this.state}
+          />
         )
+      case 4:
+        return <Photo updateData={this.updateData} nextPage={this.nextPage} />
       case 5:
-        return <Confirmation nextPage={this.nextPage} />
+        return (
+          <Terms
+            handleDisagree={this.resetApp}
+            handleSubmit={this.handleSubmit}
+            nextPage={this.nextPage}
+          />
+        )
+      case 6:
+        return <Confirmation resetApp={this.resetApp} />
+      default:
+        return <Attract nextPage={this.nextPage} />
     }
+  }
+  goFull () {
+    this.setState({ isFull: true })
+  }
+
+  render () {
+    return (
+      <div className="App">
+        {/* this.state.isFull ? (
+          <Fullscreen
+            enabled={this.state.isFull}
+            onChange={isFull => this.setState({ isFull })}
+          >
+            {' '}
+            <div className="full-screenable-node"> */ this.content() /* </div>
+          </Fullscreen>
+        ) : (
+          <button onClick={() => this.goFull()}>Go Fullscreen</button>
+        ) */}
+      </div>
+    )
   }
 }
 

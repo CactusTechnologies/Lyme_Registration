@@ -40,7 +40,10 @@
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-html5-camera-photo": "^1.2.8-beta.0",
+    "react-websocket": "^2.0.0",
+    "validator": "^10.7.1"
   },
   "devDependencies": {
     "@cactus-technologies/eslint-config": "^1.0.1",
