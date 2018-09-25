@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import injectSheet from 'react-jss'
 import Header from '../components/Header'
 import Button from '../components/Button'
-import Camera from 'react-html5-camera-photo'
+import Camera, { IMAGE_TYPES } from 'react-html5-camera-photo'
 import 'react-html5-camera-photo/build/css/index.css'
+import StatusIndicator from '../components/StatusIndicator'
 
 const styles = {
   intro: {
@@ -51,6 +52,8 @@ class Photo extends Component {
   }
   onTakePhoto (dataUri) {
     this.setState({ imageUrl: dataUri, displayPhoto: true })
+    this.props.updateData('photo', dataUri)
+    console.log(dataUri)
   }
 
   render () {
@@ -60,6 +63,7 @@ class Photo extends Component {
         <div className={classes.intro}>
           <Header back={true} nextPage={() => this.props.nextPage(3)} />
           <div className={classes.heading}>Photo</div>
+          <StatusIndicator status={3} />
           <div className={classes.camera}>
             {this.state.displayPhoto ? (
               <img className={classes.photo} src={this.state.imageUrl} />
@@ -68,6 +72,8 @@ class Photo extends Component {
                 onTakePhoto={dataUri => {
                   this.onTakePhoto(dataUri)
                 }}
+                imageCompression={0.5}
+                imageType={IMAGE_TYPES.JPG}
                 idealResolution={{ width: 300, height: 300 }}
                 isMaxResolution={false}
               />

@@ -4,6 +4,7 @@ import injectSheet from 'react-jss'
 import Button from '../components/Button'
 import background from '../images/background.svg'
 import overlay from '../images/overlay.png'
+
 const styles = {
   intro: {
     height: '100vh',

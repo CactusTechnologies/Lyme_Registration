@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import injectSheet from 'react-jss'
+import StatusIndicator from '../components/StatusIndicator'
 
 const styles = {
   confirmation: {
@@ -40,6 +41,7 @@ class Confirmation extends Component {
     return (
       <div className={classes.confirmation} tabIndex={0}>
         <div className={classes.heading}>Thank You for Participating</div>
+        <StatusIndicator />
         <div className={classes.subHeading}>
           The Story Booth Attendant Will Now Show You Inside
         </div>

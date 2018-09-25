@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import injectSheet from 'react-jss'
 import Header from '../components/Header'
 import Button from '../components/Button'
+import StatusIndicator from '../components/StatusIndicator'
 
 const styles = {
   intro: {
@@ -56,6 +57,7 @@ class Terms extends Component {
           <div className={classes.heading}>
             Your recorded story will be shared publicy...
           </div>
+          <StatusIndicator status={4} />
           <p className={classes.body}>
             Lorem ipsum dolor sit amet, consectetuer adi piscing elit, sed diam
             nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat

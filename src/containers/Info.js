@@ -4,6 +4,7 @@ import injectSheet from 'react-jss'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import isEmail from 'validator/lib/isEmail'
+import StatusIndicator from '../components/StatusIndicator'
 
 const styles = {
   info: {
@@ -15,7 +16,7 @@ const styles = {
   heading: {
     fontSize: '24px',
     marginTop: '5%',
-    marginBottom: '20px',
+
     fontFamily: 'SofiaProSemiBold'
   },
   subHeading: {
@@ -93,6 +94,7 @@ class Info extends Component {
         <div className={classes.heading}>
           Please enter your information below.
         </div>
+        <StatusIndicator status={2} />
         <form>
           <div className={classes.row}>
             <div className={classes.left}>

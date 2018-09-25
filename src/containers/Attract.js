@@ -1,14 +1,18 @@
 import React, { Component, Fragment } from 'react'
 import injectSheet from 'react-jss'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
+import StatusIndicator from '../components/StatusIndicator'
+import background from '../images/background.svg'
+// import overlay from '../images/overlay.png'
 // import Header from '../components/Header'
-// import Websocket from 'react-websocket'
+import Websocket from 'react-websocket'
 
 const styles = {
   attract: {
     background: '#E0E0E0',
     height: '100vh',
     textAlign: 'center',
+    backgroundImage: `url(${background})`,
     width: '100vw'
   },
   heading: {
@@ -19,7 +23,7 @@ const styles = {
     color: '#FFF'
   },
   subHeading: {
-    fontSize: '16px',
+    fontSize: '18px',
     marginTop: '10px',
     fontFamily: 'SofiaProSemiBold',
     color: '#FFF'
@@ -61,12 +65,12 @@ class Attract extends Component {
     const { classes } = this.props
     return (
       <div>
-        {/* <Websocket
+        <Websocket
           url="ws://192.168.1.199:9000/registration"
           onMessage={this.handleData.bind(this)}
           debug={true}
-        /> */}
-        <div tabIndex={0} />
+        />
+
         <SwipeableDrawer
           anchor="top"
           open={this.state.top}
@@ -77,7 +81,11 @@ class Attract extends Component {
           {this.state.vacant ? (
             <Fragment>
               <div className={classes.attract} tabIndex={0} role="button">
-                <div className={classes.heading}>The LymeMIND Experience</div>
+                <div className={classes.heading}>
+                  The LymeMIND
+                  <br /> Story Booth
+                </div>
+                <StatusIndicator />
                 <div className={classes.subHeading}>
                   Capturing the Reality of Lyme Disease
                 </div>

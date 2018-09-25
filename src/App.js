@@ -14,7 +14,7 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      page: 2,
+      page: 4,
       role: '',
       firstName: '',
       lastName: '',
@@ -41,7 +41,8 @@ class App extends Component {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       email: this.state.email,
-      dob: this.state.dob
+      dob: this.state.dob,
+      photo: this.state.photo
     }
     console.log(userData)
     fetch('http://192.168.1.199:3030/user/new', {

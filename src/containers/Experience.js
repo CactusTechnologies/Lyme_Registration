@@ -3,6 +3,7 @@ import injectSheet from 'react-jss'
 import Header from '../components/Header'
 import RoleButton from '../components/RoleButton'
 import Button from '../components/Button'
+import StatusIndicator from '../components/StatusIndicator'
 
 const styles = {
   intro: {
@@ -63,6 +64,7 @@ class Experience extends Component {
           <div className={classes.heading}>
             Which role best fits your experience?
           </div>
+          <StatusIndicator status={1} />
           <RoleButton
             updateData={this.props.updateData}
             nextPage={nextPage}
