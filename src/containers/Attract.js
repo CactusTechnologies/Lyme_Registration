@@ -5,7 +5,6 @@ import StatusIndicator from '../components/StatusIndicator'
 import background from '../images/background.svg'
 // import overlay from '../images/overlay.png'
 // import Header from '../components/Header'
-import Websocket from 'react-websocket'
 
 const styles = {
   attract: {
@@ -40,8 +39,7 @@ class Attract extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      top: true,
-      vacant: true
+      top: true
     }
   }
   toggleDrawer (open) {
@@ -52,25 +50,12 @@ class Attract extends Component {
       this.props.nextPage(1)
     }, 700)
   }
-  handleData (data) {
-    console.log(data)
-    let result = JSON.parse(data)
-    if (result.msg === '/busy') {
-      this.setState({ vacant: false })
-    } else {
-      this.setState({ vacant: true })
-    }
-  }
+
   render () {
+    console.log(this.props)
     const { classes } = this.props
     return (
       <div>
-        <Websocket
-          url="ws://192.168.1.199:9000/registration"
-          onMessage={this.handleData.bind(this)}
-          debug={true}
-        />
-
         <SwipeableDrawer
           anchor="top"
           open={this.state.top}
@@ -78,7 +63,7 @@ class Attract extends Component {
           onOpen={() => this.toggleDrawer(true)}
           transitionDuration={{ enter: 700, exit: 700 }}
         >
-          {this.state.vacant ? (
+          {this.props.vacant ? (
             <Fragment>
               <div className={classes.attract} tabIndex={0} role="button">
                 <div className={classes.heading}>
@@ -94,7 +79,7 @@ class Attract extends Component {
                   onKeyDown={() => this.toggleDrawer(false)}
                   className={classes.swipe}
                 >
-                  Swipe To Begin
+                  Swipe Up To Begin
                 </div>
               </div>
             </Fragment>

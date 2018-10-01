@@ -7,6 +7,7 @@ import Intro from './containers/Intro'
 import Confirmation from './containers/Confirmation'
 import Terms from './containers/Terms'
 import Photo from './containers/Photo'
+import Websocket from 'react-websocket'
 // import Fullscreen from 'react-full-screen'
 // import moment from 'moment'
 
@@ -14,18 +15,20 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      page: 4,
+      page: 0,
       role: '',
       firstName: '',
       lastName: '',
       email: '',
       dob: '',
       photo: '',
-      isFull: false
+      isFull: false,
+      vacant: true
     }
     this.nextPage = this.nextPage.bind(this)
     this.updateData = this.updateData.bind(this)
     this.handleSubmit = this.handleSumbit.bind(this)
+    this.handleData = this.handleData.bind(this)
     this.resetApp = this.resetApp.bind(this)
   }
   nextPage (number) {
@@ -65,11 +68,19 @@ class App extends Component {
     })
     this.nextPage(0)
   }
-
+  handleData (data) {
+    console.log(data)
+    let result = JSON.parse(data)
+    if (result.msg === '/busy') {
+      this.setState({ vacant: false })
+    } else {
+      this.setState({ vacant: true })
+    }
+  }
   content () {
     switch (this.state.page) {
       case 0:
-        return <Attract nextPage={this.nextPage} />
+        return <Attract vacant={this.state.vacant} nextPage={this.nextPage} />
       case 1:
         return <Intro nextPage={this.nextPage} />
       case 2:
@@ -97,7 +108,7 @@ class App extends Component {
       case 6:
         return <Confirmation resetApp={this.resetApp} />
       default:
-        return <Attract nextPage={this.nextPage} />
+        return <Attract vacant={this.state.vacant} nextPage={this.nextPage} />
     }
   }
   goFull () {
@@ -107,17 +118,12 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-        {/* this.state.isFull ? (
-          <Fullscreen
-            enabled={this.state.isFull}
-            onChange={isFull => this.setState({ isFull })}
-          >
-            {' '}
-            <div className="full-screenable-node"> */ this.content() /* </div>
-          </Fullscreen>
-        ) : (
-          <button onClick={() => this.goFull()}>Go Fullscreen</button>
-        ) */}
+        <Websocket
+          url="ws://192.168.1.199:9000/registration"
+          onMessage={this.handleData.bind(this)}
+          debug={true}
+        />
+        {this.content()}
       </div>
     )
   }
