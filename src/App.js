@@ -48,7 +48,7 @@ class App extends Component {
       photo: this.state.photo
     }
     console.log(userData)
-    fetch('http://192.168.1.199:3030/user/new', {
+    fetch('http://10.0.20.5:3030/user/new', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -56,6 +56,7 @@ class App extends Component {
       },
       body: JSON.stringify(userData)
     })
+    alert('should be working')
   }
   resetApp () {
     this.setState({
@@ -98,8 +99,10 @@ class App extends Component {
       case 4:
         return <Photo updateData={this.updateData} nextPage={this.nextPage} />
       case 5:
+        const name = this.state.firstName + ' ' + this.state.lastName
         return (
           <Terms
+            name={name}
             handleDisagree={this.resetApp}
             handleSubmit={this.handleSubmit}
             nextPage={this.nextPage}
@@ -119,7 +122,7 @@ class App extends Component {
     return (
       <div className="App">
         <Websocket
-          url="ws://192.168.1.199:9000/registration"
+          url="ws://10.0.20.5:9000/registration"
           onMessage={this.handleData.bind(this)}
           debug={true}
         />

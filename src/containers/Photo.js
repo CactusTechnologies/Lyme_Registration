@@ -53,7 +53,7 @@ class Photo extends Component {
   onTakePhoto (dataUri) {
     this.setState({ imageUrl: dataUri, displayPhoto: true })
     this.props.updateData('photo', dataUri)
-    console.log(dataUri)
+    // console.log(dataUri)
   }
 
   render () {
