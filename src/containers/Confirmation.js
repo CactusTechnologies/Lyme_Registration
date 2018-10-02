@@ -15,7 +15,6 @@ const styles = {
   heading: {
     fontSize: '42px',
     paddingTop: '150px',
-    width: '320px',
     margin: 'auto',
     marginBottom: '10px',
     fontFamily: 'MuseoSlab100',
@@ -64,7 +63,8 @@ class Confirmation extends Component {
       <div className={classes.confirmation} tabIndex={0}>
         <div className={classes.overlay}>
           <div className={classes.heading}>
-            {`Thank You for Participating ${this.props.firstName}`}
+            Thank You for <br />
+            {`Participating ${this.props.firstName}`}
           </div>
           <StatusIndicator />
           <div className={classes.subHeading}>

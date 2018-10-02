@@ -79,7 +79,6 @@ const styles = {
   heading2: {
     fontSize: '42px',
     paddingTop: '150px',
-    width: '320px',
     margin: 'auto',
     marginBottom: '10px',
     fontFamily: 'MuseoSlab100',
