@@ -70,39 +70,28 @@ class Terms extends Component {
             or consideration. I understand that my image may be edited, copied,
             exhibited, published or distributed and waive the right to inspect
             or approve the finished product wherein my likeness appears.
-            <br />
-            <br />
             Additionally, I waive any right to royalties or other compensation
             arising or related to the use of my image or recording. I also
             understand that this material may be used in diverse educational
-            settings with an unrestricted geographic area.
-            <br />
-            <br />
-            Photographs, audio, or video recordings may be used for the
-            following uses: media, news (press), online / internet videos,
-            presentations, or educational material/s.
+            settings with an unrestricted geographic area. Photographs, audio,
+            or video recordings may be used for the following uses: media, news
+            (press), online / internet videos, presentations, or educational
+            material/s.
           </p>
           <p className={classes.body}>
             By signing this release, I understand this permission signifies that
             photographic or video recordings of me may be electronically
             displayed via the internet or in the public educational setting. I
             will be consulted about the use of photographs or video recording
-            for any purpose other than those listed above.
-            <br />
-            <br />
-            There is no time limit on the validity of this release, nor is there
-            any geographic limitation on where these materials may be
-            distributed.
-            <br />
-            <br />
-            This release applies to photographic, audio, or video recordings
-            collected as part of the sessions listed on this document only.
-            <br />
-            <br />
-            By signing this release, I acknowledge that I have completely read
-            and fully understand the above release and agree to be bound
-            thereby. I hereby release any and all claims against any person or
-            organization utilizing this material for educational purposes.
+            for any purpose other than those listed above. There is no time
+            limit on the validity of this release, nor is there any geographic
+            limitation on where these materials may be distributed. This release
+            applies to photographic, audio, or video recordings collected as
+            part of the sessions listed on this document only. By signing this
+            release, I acknowledge that I have completely read and fully
+            understand the above release and agree to be bound thereby. I hereby
+            release any and all claims against any person or organization
+            utilizing this material for educational purposes.
           </p>
           <Button
             align={'left'}

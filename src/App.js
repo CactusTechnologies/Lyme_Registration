@@ -56,7 +56,6 @@ class App extends Component {
       },
       body: JSON.stringify(userData)
     })
-    alert('should be working')
   }
   resetApp () {
     this.setState({
