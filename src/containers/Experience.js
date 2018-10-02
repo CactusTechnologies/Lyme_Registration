@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import RoleButton from '../components/RoleButton'
 import Button from '../components/Button'
 import StatusIndicator from '../components/StatusIndicator'
+import logo from '../images/logo.svg'
 
 const styles = {
   intro: {
@@ -14,8 +15,10 @@ const styles = {
   heading: {
     fontSize: '24px',
     marginTop: '5%',
+    marginBottom: '10px',
     fontFamily: 'SofiaProSemiBold'
   },
+
   subHeading: {
     fontSize: '16px',
     marginTop: '10px'
@@ -28,6 +31,16 @@ const styles = {
     width: '300px',
     margin: 'auto',
     padding: '30px'
+  },
+  logo: {
+    width: '85px',
+    height: '35px',
+    backgroundImage: `url(${logo})`,
+    backgroundRepeat: 'no-repeat',
+    position: 'absolute',
+    bottom: '20px',
+    right: '15px',
+    margin: 'auto'
   }
 }
 
@@ -115,6 +128,7 @@ class Experience extends Component {
           >
             Share Your Story
           </Button>
+          <div className={classes.logo} />
         </div>
       </div>
     )

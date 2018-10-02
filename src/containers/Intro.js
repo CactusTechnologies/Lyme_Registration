@@ -4,7 +4,7 @@ import injectSheet from 'react-jss'
 import Button from '../components/Button'
 import background from '../images/background.svg'
 import overlay from '../images/overlay.png'
-
+import StatusIndicator from '../components/StatusIndicator'
 const styles = {
   intro: {
     height: '100vh',
@@ -62,6 +62,7 @@ class Intro extends Component {
         <div className={classes.intro}>
           <div className={classes.header}>
             <div className={classes.heading}>The LymeMind Story Booth</div>
+            <StatusIndicator />
             <div className={classes.subHeading}>
               Capturing the Reality of Lyme Disease
             </div>

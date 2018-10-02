@@ -3,6 +3,9 @@ import injectSheet from 'react-jss'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import StatusIndicator from '../components/StatusIndicator'
 import background from '../images/background.svg'
+import overlay from '../images/overlay.png'
+import swipeup from '../images/swipeup.svg'
+import logo from '../images/logo.svg'
 // import overlay from '../images/overlay.png'
 // import Header from '../components/Header'
 
@@ -31,7 +34,67 @@ const styles = {
     textTransform: 'uppercase',
     marginTop: '20%',
     fontFamily: 'SofiaProBlack',
-    color: '#434448'
+    color: '#434448',
+    position: 'absolute',
+    bottom: '50px',
+    width: '100%'
+  },
+  header: {
+    backgroundImage: `url(${overlay})`,
+    height: '600px',
+    top: '0px',
+    position: 'absolute',
+    width: '100%'
+  },
+  header2: {
+    backgroundImage: `url(${overlay})`,
+    backgroundSize: 'cover',
+    height: '292px',
+    width: '100%'
+  },
+  overlay: {
+    backgroundImage: `url(${overlay})`,
+    height: '100%',
+    width: '100%'
+  },
+  swipeIcon: {
+    width: '25px',
+    height: '20px',
+    backgroundImage: `url(${swipeup})`,
+    backgroundRepeat: 'no-repeat',
+    hover: 'cursor',
+    margin: 'auto'
+  },
+  logo: {
+    width: '150px',
+    height: '60px',
+    backgroundImage: `url(${logo})`,
+    backgroundRepeat: 'no-repeat',
+    position: 'absolute',
+    bottom: '20px',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    margin: 'auto'
+  },
+  heading2: {
+    fontSize: '42px',
+    paddingTop: '150px',
+    width: '320px',
+    margin: 'auto',
+    marginBottom: '10px',
+    fontFamily: 'MuseoSlab100',
+    color: '#FFF'
+  },
+  overlay2: {
+    backgroundImage: `url(${overlay})`,
+    height: '100%',
+    width: '100%'
+  },
+  subHeading2: {
+    fontSize: '16px',
+    marginTop: '10px',
+    fontFamily: 'SofiaProSemiBold',
+    color: '#FFF'
   }
 }
 
@@ -52,10 +115,10 @@ class Attract extends Component {
   }
 
   render () {
-    console.log(this.props)
     const { classes } = this.props
     return (
-      <div>
+      <div className={classes.attract}>
+        <div className={classes.header2} />
         <SwipeableDrawer
           anchor="top"
           open={this.state.top}
@@ -66,19 +129,22 @@ class Attract extends Component {
           {this.props.vacant ? (
             <Fragment>
               <div className={classes.attract} tabIndex={0} role="button">
-                <div className={classes.heading}>
-                  The LymeMIND
-                  <br /> Story Booth
-                </div>
-                <StatusIndicator />
-                <div className={classes.subHeading}>
-                  Capturing the Reality of Lyme Disease
+                <div className={classes.header}>
+                  <div className={classes.heading}>
+                    The LymeMIND
+                    <br /> Story Booth
+                  </div>
+                  <StatusIndicator />
+                  <div className={classes.subHeading}>
+                    Capturing the Reality of Lyme Disease
+                  </div>
                 </div>
                 <div
                   onClick={() => this.toggleDrawer(false)}
                   onKeyDown={() => this.toggleDrawer(false)}
                   className={classes.swipe}
                 >
+                  <div className={classes.swipeIcon} />
                   Swipe Up To Begin
                 </div>
               </div>
@@ -86,8 +152,18 @@ class Attract extends Component {
           ) : (
             <Fragment>
               <div className={classes.attract} tabIndex={0} role="button">
-                <div className={classes.heading}>Booth In Use</div>
-                <div className={classes.subHeading}>Please wait</div>
+                <div className={classes.overlay2}>
+                  <div className={classes.heading2}>
+                    The Story Booth is
+                    <br />
+                    Currently Occupied
+                  </div>
+                  <StatusIndicator />
+                  <div className={classes.subHeading2}>
+                    Thank You for Your Patience
+                  </div>
+                </div>
+                <div className={classes.logo} />
               </div>
             </Fragment>
           )}

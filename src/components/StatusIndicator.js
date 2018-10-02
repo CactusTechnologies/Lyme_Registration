@@ -3,8 +3,8 @@ import injectSheet from 'react-jss'
 
 const styles = {
   indicator: {
-    width: '7px',
-    height: '7px',
+    width: '5px',
+    height: '5px',
     display: 'inline-block',
     margin: '3.5px',
     borderRadius: '5px',

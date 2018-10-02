@@ -106,7 +106,12 @@ class App extends Component {
           />
         )
       case 6:
-        return <Confirmation resetApp={this.resetApp} />
+        return (
+          <Confirmation
+            firstName={this.state.firstName}
+            resetApp={this.resetApp}
+          />
+        )
       default:
         return <Attract vacant={this.state.vacant} nextPage={this.nextPage} />
     }

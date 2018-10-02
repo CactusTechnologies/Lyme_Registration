@@ -3,7 +3,7 @@ import injectSheet from 'react-jss'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import StatusIndicator from '../components/StatusIndicator'
-
+import logo from '../images/logo.svg'
 const styles = {
   intro: {
     height: '100vh',
@@ -33,6 +33,16 @@ const styles = {
     lineHeight: '1.4',
     color: '#434448',
     verticalAlign: 'top'
+  },
+  logo: {
+    width: '85px',
+    height: '35px',
+    backgroundImage: `url(${logo})`,
+    backgroundRepeat: 'no-repeat',
+    position: 'absolute',
+    bottom: '20px',
+    right: '15px',
+    margin: 'auto'
   }
 }
 
@@ -59,23 +69,44 @@ class Terms extends Component {
           </div>
           <StatusIndicator status={4} />
           <p className={classes.body}>
-            Lorem ipsum dolor sit amet, consectetuer adi piscing elit, sed diam
-            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-            mcorper suscipit lobortis odo consequat. Duis autem vel eum iriure
-            dolor in hendrerit in vulputate velit esse molestie , vel illum
-            dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
-            odio dignissim qui blandit pra sent luptatum zzril delenit augue
-            duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,
-            cons ectet iscing elit, sed diam nonummy nibh euismod
+            I, , hereby grant permission to Mount Sinai Institute for Next
+            Generation Healthcare, with a mailing address of , the rights of my
+            image, in video or still, and of the likeness and sound of my voice
+            as recorded on audio or videotape without payment or consideration.
+            I understand that my image may be edited, copied, exhibited,
+            published or distributed and waive the right to inspect or approve
+            the finished product wherein my likeness appears. Additionally, I
+            waive any right to royalties or other compensation arising or
+            related to the use of my image or recording. I also understand that
+            this material may be used in diverse educational settings with an
+            unrestricted geographic area. <br />
+            <br />
+            Photographs, audio, or video recordings may be used for the
+            following uses: media, news (press), online / internet videos,
+            presentations, or educational material/s. <br />
+            <br />
+            By signing this release, I understand this permission signifies that
+            photographic or video recordings of me may be electronically
+            displayed via the internet or in the public educational setting.
           </p>{' '}
           <p className={classes.body}>
-            Lorem ipsum dolor sit amet, consectetuer adi piscing elit, sed diam
-            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-            mcorper suscipit lobortis odo consequat. Duis autem vel eum iriure
-            dolor in hendrerit in vulputate velit esse molestie , vel illum
-            dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
+            I will be consulted about the use of photographs or video recording
+            for any purpose other than those listed above.
+            <br />
+            <br />
+            There is no time limit on the validity of this release, nor is there
+            any geographic limitation on where these materials may be
+            distributed.
+            <br />
+            <br />
+            This release applies to photographic, audio, or video recordings
+            collected as part of the sessions listed on this document only.
+            <br />
+            <br />
+            By signing this release, I acknowledge that I have completely reade
+            and fully understand the above release and agree to be bound
+            thereby. I hereby release any and all claims against any person or
+            organization utilizing this material for educational purposes.
           </p>
           <Button
             align={'left'}
@@ -91,6 +122,7 @@ class Terms extends Component {
           >
             I Agree
           </Button>
+          <div className={classes.logo} />
         </div>
       </div>
     )
