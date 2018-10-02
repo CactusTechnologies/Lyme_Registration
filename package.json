@@ -18,7 +18,6 @@
     "docs:readme": "mos README.md && git add README.md",
     "docs:todos": "npm run todos -s -- --reporter markdown > TODO.md && git add TODO.md",
     "outdated": "npm outdated --long  || true",
-    "prepush": "npm run test",
     "start": "BROWSER=none react-scripts start",
     "test": "run-s test:** -sn",
     "test:depcheck": "depcheck --ignores=husky,config,eslint-*,babel-eslint --ignore-bin-package",
