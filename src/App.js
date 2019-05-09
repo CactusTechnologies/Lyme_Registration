@@ -44,7 +44,7 @@ class App extends Component {
       dob: this.state.dob
     }
     console.log(userData)
-    fetch('http://192.168.1.199:3030/user/new', {
+    fetch('http://localhost:3030/user/new', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

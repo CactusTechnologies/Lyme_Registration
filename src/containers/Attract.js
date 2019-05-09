@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import injectSheet from 'react-jss'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 // import Header from '../components/Header'
-// import Websocket from 'react-websocket'
+import Websocket from 'react-websocket'
 
 const styles = {
   attract: {
@@ -61,11 +61,11 @@ class Attract extends Component {
     const { classes } = this.props
     return (
       <div>
-        {/* <Websocket
-          url="ws://192.168.1.199:9000/registration"
+        <Websocket
+          url="ws://localhost:9000/registration"
           onMessage={this.handleData.bind(this)}
           debug={true}
-        /> */}
+        />
         <div tabIndex={0} />
         <SwipeableDrawer
           anchor="top"
