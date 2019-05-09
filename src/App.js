@@ -7,6 +7,7 @@ import Intro from './containers/Intro'
 import Confirmation from './containers/Confirmation'
 import Terms from './containers/Terms'
 import Photo from './containers/Photo'
+import Websocket from 'react-websocket'
 // import Fullscreen from 'react-full-screen'
 // import moment from 'moment'
 
@@ -14,18 +15,20 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      page: 2,
+      page: 0,
       role: '',
       firstName: '',
       lastName: '',
       email: '',
       dob: '',
       photo: '',
-      isFull: false
+      isFull: false,
+      vacant: true
     }
     this.nextPage = this.nextPage.bind(this)
     this.updateData = this.updateData.bind(this)
     this.handleSubmit = this.handleSumbit.bind(this)
+    this.handleData = this.handleData.bind(this)
     this.resetApp = this.resetApp.bind(this)
   }
   nextPage (number) {
@@ -41,7 +44,8 @@ class App extends Component {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       email: this.state.email,
-      dob: this.state.dob
+      dob: this.state.dob,
+      photo: this.state.photo
     }
     console.log(userData)
     fetch('http://localhost:3030/user/new', {
@@ -64,11 +68,19 @@ class App extends Component {
     })
     this.nextPage(0)
   }
-
+  handleData (data) {
+    console.log(data)
+    let result = JSON.parse(data)
+    if (result.msg === '/busy') {
+      this.setState({ vacant: false })
+    } else {
+      this.setState({ vacant: true })
+    }
+  }
   content () {
     switch (this.state.page) {
       case 0:
-        return <Attract nextPage={this.nextPage} />
+        return <Attract vacant={this.state.vacant} nextPage={this.nextPage} />
       case 1:
         return <Intro nextPage={this.nextPage} />
       case 2:
@@ -86,17 +98,24 @@ class App extends Component {
       case 4:
         return <Photo updateData={this.updateData} nextPage={this.nextPage} />
       case 5:
+        const name = this.state.firstName + ' ' + this.state.lastName
         return (
           <Terms
+            name={name}
             handleDisagree={this.resetApp}
             handleSubmit={this.handleSubmit}
             nextPage={this.nextPage}
           />
         )
       case 6:
-        return <Confirmation resetApp={this.resetApp} />
+        return (
+          <Confirmation
+            firstName={this.state.firstName}
+            resetApp={this.resetApp}
+          />
+        )
       default:
-        return <Attract nextPage={this.nextPage} />
+        return <Attract vacant={this.state.vacant} nextPage={this.nextPage} />
     }
   }
   goFull () {
@@ -106,17 +125,12 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-        {/* this.state.isFull ? (
-          <Fullscreen
-            enabled={this.state.isFull}
-            onChange={isFull => this.setState({ isFull })}
-          >
-            {' '}
-            <div className="full-screenable-node"> */ this.content() /* </div>
-          </Fullscreen>
-        ) : (
-          <button onClick={() => this.goFull()}>Go Fullscreen</button>
-        ) */}
+        <Websocket
+          url="ws://10.0.20.5:9000/registration"
+          onMessage={this.handleData.bind(this)}
+          debug={true}
+        />
+        {this.content()}
       </div>
     )
   }

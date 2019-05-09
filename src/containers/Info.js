@@ -4,7 +4,8 @@ import injectSheet from 'react-jss'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import isEmail from 'validator/lib/isEmail'
-
+import StatusIndicator from '../components/StatusIndicator'
+import logo from '../images/logo.svg'
 const styles = {
   info: {
     background: '#f5f5f5',
@@ -36,6 +37,16 @@ const styles = {
   right: {
     float: 'left',
     padding: '0px 0px 10px 5px'
+  },
+  logo: {
+    width: '85px',
+    height: '35px',
+    backgroundImage: `url(${logo})`,
+    backgroundRepeat: 'no-repeat',
+    position: 'absolute',
+    bottom: '20px',
+    right: '15px',
+    margin: 'auto'
   }
 }
 
@@ -93,6 +104,7 @@ class Info extends Component {
         <div className={classes.heading}>
           Please enter your information below.
         </div>
+        <StatusIndicator status={2} />
         <form>
           <div className={classes.row}>
             <div className={classes.left}>
@@ -142,6 +154,7 @@ class Info extends Component {
         >
           Continue
         </Button>
+        <div className={classes.logo} />
       </div>
     )
   }

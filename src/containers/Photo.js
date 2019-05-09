@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import injectSheet from 'react-jss'
 import Header from '../components/Header'
 import Button from '../components/Button'
-import Camera from 'react-html5-camera-photo'
+import Camera, { IMAGE_TYPES } from 'react-html5-camera-photo'
 import 'react-html5-camera-photo/build/css/index.css'
-
+import StatusIndicator from '../components/StatusIndicator'
+import logo from '../images/logo.svg'
 const styles = {
   intro: {
     height: '100vh',
@@ -14,6 +15,7 @@ const styles = {
   heading: {
     fontSize: '24px',
     marginTop: '5%',
+    marginBottom: '20px',
     fontFamily: 'SofiaProSemiBold'
   },
   subHeading: {
@@ -39,6 +41,16 @@ const styles = {
   },
   video: {
     width: '300px'
+  },
+  logo: {
+    width: '85px',
+    height: '35px',
+    backgroundImage: `url(${logo})`,
+    backgroundRepeat: 'no-repeat',
+    position: 'absolute',
+    bottom: '20px',
+    right: '15px',
+    margin: 'auto'
   }
 }
 
@@ -51,6 +63,8 @@ class Photo extends Component {
   }
   onTakePhoto (dataUri) {
     this.setState({ imageUrl: dataUri, displayPhoto: true })
+    this.props.updateData('photo', dataUri)
+    // console.log(dataUri)
   }
 
   render () {
@@ -60,6 +74,12 @@ class Photo extends Component {
         <div className={classes.intro}>
           <Header back={true} nextPage={() => this.props.nextPage(3)} />
           <div className={classes.heading}>Photo</div>
+          <StatusIndicator status={3} />
+          <div className={classes.subHeading}>
+            This photo will only be used to match your information to your
+            <br />
+            interview footage and will not be shared publicly.
+          </div>
           <div className={classes.camera}>
             {this.state.displayPhoto ? (
               <img className={classes.photo} src={this.state.imageUrl} />
@@ -68,6 +88,8 @@ class Photo extends Component {
                 onTakePhoto={dataUri => {
                   this.onTakePhoto(dataUri)
                 }}
+                imageCompression={0.5}
+                imageType={IMAGE_TYPES.JPG}
                 idealResolution={{ width: 300, height: 300 }}
                 isMaxResolution={false}
               />
@@ -92,6 +114,7 @@ class Photo extends Component {
               </Button>
             </div>
           )}
+          <div className={classes.logo} />
         </div>
       </div>
     )
