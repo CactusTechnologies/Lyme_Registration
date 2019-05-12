@@ -1,0 +1,14 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.98859 16.61873">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #86c792;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <title>swipeup</title>
+  <polyline class="cls-1" points="0.745 15.317 24.494 1.728 48.244 15.317"/>
+</svg>

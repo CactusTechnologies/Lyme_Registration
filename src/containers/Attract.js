@@ -100,13 +100,13 @@ const styles = {
 }
 
 class Attract extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       top: true
     }
   }
-  toggleDrawer (open) {
+  toggleDrawer(open) {
     this.setState({
       top: open
     })
@@ -115,18 +115,11 @@ class Attract extends Component {
     }, 700)
   }
 
-  render () {
+  render() {
     const { classes } = this.props
     return (
-      <div>
-        <Websocket
-          url="ws://localhost:9000/registration"
-          onMessage={this.handleData.bind(this)}
-          debug={true}
-        />
-        <div tabIndex={0} />
-        {/* <div className={classes.attract}>
-        <div className={classes.header2} /> */}
+      <div className={classes.attract}>
+        <div className={classes.header2} />
         <SwipeableDrawer
           anchor="top"
           open={this.state.top}
@@ -158,23 +151,23 @@ class Attract extends Component {
               </div>
             </Fragment>
           ) : (
-            <Fragment>
-              <div className={classes.attract} tabIndex={0} role="button">
-                <div className={classes.overlay2}>
-                  <div className={classes.heading2}>
-                    The Story Booth is
+              <Fragment>
+                <div className={classes.attract} tabIndex={0} role="button">
+                  <div className={classes.overlay2}>
+                    <div className={classes.heading2}>
+                      The Story Booth is
                     <br />
-                    Currently Occupied
+                      Currently Occupied
                   </div>
-                  <StatusIndicator />
-                  <div className={classes.subHeading2}>
-                    Thank You for Your Patience
+                    <StatusIndicator />
+                    <div className={classes.subHeading2}>
+                      Thank You for Your Patience
                   </div>
+                  </div>
+                  <div className={classes.logo} />
                 </div>
-                <div className={classes.logo} />
-              </div>
-            </Fragment>
-          )}
+              </Fragment>
+            )}
         </SwipeableDrawer>
       </div>
     )
