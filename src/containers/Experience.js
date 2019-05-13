@@ -116,7 +116,7 @@ class Experience extends Component {
               checkButton={this.checkButton}
             >
               I am a healthcare professional who provides clinical care for
-              patients afflicted with Lyme Disease
+              patients afflicted with Lyme Disease.
             </RoleButton>
             <RoleButton
               updateData={this.props.updateData}
