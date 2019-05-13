@@ -97,8 +97,8 @@ class Experience extends Component {
             setBorder={this.setBorder}
             checkButton={this.checkButton}
           >
-            I am currently battling with Lyme disease, or have suffered from it
-            in the past.
+            I provide support and care for a friend or family member who suffers
+            from Lyme Disease.
           </RoleButton>
           <RoleButton
             updateData={this.props.updateData}
@@ -108,8 +108,8 @@ class Experience extends Component {
             setBorder={this.setBorder}
             checkButton={this.checkButton}
           >
-            I am currently battling with Lyme disease, or have suffered from it
-            in the past.
+            I am a healthcare professional who provides clinical care for
+            patients afflicted with Lyme Disease
           </RoleButton>
           <RoleButton
             updateData={this.props.updateData}
@@ -119,8 +119,8 @@ class Experience extends Component {
             setBorder={this.setBorder}
             checkButton={this.checkButton}
           >
-            I am currently battling with Lyme disease, or have suffered from it
-            in the past.
+            I am a scientist working to improve our understanding of Lyme
+            Disease.
           </RoleButton>
           <Button
             theme={this.state.active ? 'valid' : 'invalid'}
