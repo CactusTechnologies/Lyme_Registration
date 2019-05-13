@@ -53,6 +53,25 @@ class Intro extends Component {
     this.state = {
       top: true
     }
+    this.resetTimer = null
+    this._handleChange = this._handleChange.bind(this)
+  }
+
+  componentDidMount () {
+    this.resetTimer = setTimeout(() => {
+      clearTimeout(this.resetTimer)
+      this.resetTimer = null
+      this.props.nextPage(0)
+    }, 30000)
+  }
+
+  componentWillUnmount () {
+    clearTimeout(this.resetTimer)
+    this.resetTimer = null
+  }
+
+  _handleChange () {
+    this.props.nextPage(2)
   }
 
   render () {
@@ -91,7 +110,7 @@ class Intro extends Component {
               the email address you will provide momentarily.
             </p>
           </div>
-          <Button theme={'valid'} onClick={() => this.props.nextPage(2)}>
+          <Button theme={'valid'} onClick={this._handleChange}>
             Share Your Story
           </Button>
         </div>

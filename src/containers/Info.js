@@ -132,6 +132,7 @@ class Info extends Component {
               <input
                 type="text"
                 name="email"
+                type="email"
                 onChange={this.handleChange}
                 value={this.props.email}
               />

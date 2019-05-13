@@ -41,6 +41,12 @@ const styles = {
     bottom: '20px',
     right: '15px',
     margin: 'auto'
+  },
+  optionsContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexWrap: 'wrap'
   }
 }
 
@@ -78,50 +84,52 @@ class Experience extends Component {
             Which role best fits your experience?
           </div>
           <StatusIndicator status={1} />
-          <RoleButton
-            updateData={this.props.updateData}
-            nextPage={nextPage}
-            experience={'Patient'}
-            buttonId={1}
-            setBorder={this.setBorder}
-            checkButton={this.checkButton}
-          >
-            I am currently battling with Lyme disease, or have suffered from it
-            in the past.
-          </RoleButton>
-          <RoleButton
-            updateData={this.props.updateData}
-            nextPage={nextPage}
-            experience={'Caregiver'}
-            buttonId={2}
-            setBorder={this.setBorder}
-            checkButton={this.checkButton}
-          >
-            I provide support and care for a friend or family member who suffers
-            from Lyme Disease.
-          </RoleButton>
-          <RoleButton
-            updateData={this.props.updateData}
-            nextPage={nextPage}
-            experience={'Clinician'}
-            buttonId={3}
-            setBorder={this.setBorder}
-            checkButton={this.checkButton}
-          >
-            I am a healthcare professional who provides clinical care for
-            patients afflicted with Lyme Disease
-          </RoleButton>
-          <RoleButton
-            updateData={this.props.updateData}
-            nextPage={nextPage}
-            experience={'Researcher'}
-            buttonId={4}
-            setBorder={this.setBorder}
-            checkButton={this.checkButton}
-          >
-            I am a scientist working to improve our understanding of Lyme
-            Disease.
-          </RoleButton>
+          <div className={classes.optionsContainer}>
+            <RoleButton
+              updateData={this.props.updateData}
+              nextPage={nextPage}
+              experience={'Patient'}
+              buttonId={1}
+              setBorder={this.setBorder}
+              checkButton={this.checkButton}
+            >
+              I am currently battling with Lyme disease, or have suffered from
+              it in the past.
+            </RoleButton>
+            <RoleButton
+              updateData={this.props.updateData}
+              nextPage={nextPage}
+              experience={'Caregiver'}
+              buttonId={2}
+              setBorder={this.setBorder}
+              checkButton={this.checkButton}
+            >
+              I provide support and care for a friend or family member who
+              suffers from Lyme Disease.
+            </RoleButton>
+            <RoleButton
+              updateData={this.props.updateData}
+              nextPage={nextPage}
+              experience={'Clinician'}
+              buttonId={3}
+              setBorder={this.setBorder}
+              checkButton={this.checkButton}
+            >
+              I am a healthcare professional who provides clinical care for
+              patients afflicted with Lyme Disease
+            </RoleButton>
+            <RoleButton
+              updateData={this.props.updateData}
+              nextPage={nextPage}
+              experience={'Researcher'}
+              buttonId={4}
+              setBorder={this.setBorder}
+              checkButton={this.checkButton}
+            >
+              I am a scientist working to improve our understanding of Lyme
+              Disease.
+            </RoleButton>
+          </div>
           <Button
             theme={this.state.active ? 'valid' : 'invalid'}
             onClick={this.state.active ? () => this.props.nextPage(3) : null}

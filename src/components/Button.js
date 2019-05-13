@@ -3,11 +3,11 @@ import injectSheet from 'react-jss'
 
 const styles = {
   button: {
-    width: '170px',
+    width: '200px',
     textAlign: 'center',
     background: '#dedede',
-    height: '40px',
-    borderRadius: '20px',
+    height: '60px',
+    borderRadius: '30px',
     margin: '10px',
     display: 'inline-block',
     position: 'absolute',
@@ -26,8 +26,8 @@ const styles = {
   },
   label: {
     position: 'relative',
-    top: '25%',
-    transform: 'translateY(-25%)'
+    top: '30%',
+    transform: 'translateY(-30%)'
   }
 }
 
