@@ -82,8 +82,8 @@ class Intro extends Component {
             <p className={classes.body}>
               This experience will be very similar to a taped interview. You
               will sit within the story booth and respond verbally to a series
-              of five prompt that appear on screen. All recorded answers will be
-              edited for clarity post recording.
+              of five prompts that appear on screen. All recorded answers will
+              be edited for clarity post recording.
               <br />
               <br />
               You will be able to access a copy of your edited Lyme disease
